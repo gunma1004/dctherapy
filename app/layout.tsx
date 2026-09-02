@@ -30,10 +30,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        {/* 네이버 서치어드바이저 소유확인 태그 직접 삽입 */}
+       {/* 네이버 서치어드바이저 소유확인 태그 */}
         <meta
           name="naver-site-verification"
-          content="93619e854ae0d429d3dab505e6a4ff1679eb4832"
+          content="20aed14af388a01bf5aad0deed962a7162ae1be3"
+        />
         />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
