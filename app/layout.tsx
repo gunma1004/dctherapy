@@ -35,8 +35,7 @@ export default function RootLayout({
           name="naver-site-verification"
           content="20aed14af388a01bf5aad0deed962a7162ae1be3"
         />
-        />
-      </head>
+        </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
