@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://dctherapy.netlify.app"),
   title: {
-    default: "대청테라피 | 대전·청주 출장마사지 24시 방문 홈케어",
+    default: "대청테라피 | 대전·청주 출장 마사지 24시 방문 홈케어",
     template: "%s | 대청테라피",
   },
   description:
-    "대전 및 청주 전 지역 24시 출장마사지 전문 대청테라피. 유성·서구·흥덕·청원 30분 내 방문, 건식·아로마·스웨디시 100% 후불제 케어.",
+    "대전 및 청주 전 지역 24시 출장 마사지 전문 대청테라피. 유성·서구·흥덕·청원 30분 내 방문, 건식·아로마·스웨디시 100% 후불제 케어.",
   keywords: [
     "대전출장마사지",
     "청주출장마사지",
