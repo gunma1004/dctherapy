@@ -2,20 +2,19 @@ import Link from "next/link";
 import { CITIES_DATA, DOMAIN } from "@/app/data";
 
 export const metadata = {
-  title: "대전 출장마사지 & 청주 출장마사지 | 24시 방문 힐링케어",
-  // 👇 80자 이내로 수정
+  // layout.tsx의 template("%s | 대청테라피")에 맞춰 간결하게 지정 (최종 출력: 대전·청주 출장마사지 24시 방문케어 | 대청테라피)
+  title: "대전·청주 출장마사지 24시 방문케어",
   description:
-    "대전 및 청주 전 지역 24시 출장마사지 전문. 유성구·서구·흥덕구·청원구 30분 내 방문, 스웨디시·아로마 100% 후불제.",
+    "대전 및 청주 전 지역 24시 출장마사지 전문 대청테라피. 유성·서구·흥덕·청원 30분 내 방문, 스웨디시·아로마 100% 후불제.",
   alternates: {
     canonical: DOMAIN,
   },
   openGraph: {
-    title: "대전 출장마사지 & 청주 출장마사지 | 24시 방문 힐링케어",
-    // 👇 80자 이내로 수정
+    title: "대청테라피 | 대전·청주 출장마사지 24시 방문 홈케어",
     description:
-      "대전 및 청주 전 지역 24시 출장마사지 전문. 유성구·서구·흥덕구·청원구 30분 내 방문, 스웨디시·아로마 100% 후불제.",
+      "대전 및 청주 전 지역 24시 출장마사지 전문 대청테라피. 유성·서구·흥덕·청원 30분 내 방문, 스웨디시·아로마 100% 후불제.",
     url: DOMAIN,
-    siteName: "대전 & 청주 출장마사지",
+    siteName: "대청테라피",
     locale: "ko_KR",
     type: "website",
   },
@@ -37,20 +36,20 @@ export default function HomePage() {
     )
   );
 
-  /* JSON-LD 내 전화번호(telephone) 항목 완전히 제외 */
+  /* JSON-LD 구조화 데이터 */
   const jsonLd = [
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      name: "대전 & 청주 출장마사지 24시 방문케어",
+      name: "대청테라피 (대전·청주 24시 출장 홈케어)",
       url: DOMAIN,
-      description: "대전 및 청주 전 지역 24시간 출장마사지 전문 서비스",
+      description: "대전 및 청주 전 지역 24시간 출장마사지 전문 대청테라피",
       priceRange: "60,000원-150,000원",
     },
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      name: "대전 청주 출장마사지 서비스 지역",
+      name: "대청테라피 대전 청주 출장마사지 서비스 지역",
       itemListElement: allLinks.map((item, index) => ({
         "@type": "ListItem",
         position: index + 1,
@@ -83,10 +82,12 @@ export default function HomePage() {
       {/* GNB (상단바) */}
       <header className="sticky top-0 z-40 bg-[#080611]/90 backdrop-blur-md border-b border-white/10">
         <div className="max-w-[1160px] mx-auto h-[66px] px-4 flex items-center justify-between">
-          <Link href="/" className="font-black text-sm sm:text-xl tracking-tight text-white flex items-center gap-1.5">
-            <span className="text-[#00ff88]">대전 출장마사지</span>
+          <Link href="/" className="font-black text-base sm:text-xl tracking-tight text-white flex items-center gap-2">
+            <span className="text-white">대청테라피</span>
             <span className="text-gray-500 font-normal text-xs">|</span>
-            <span className="text-[#ba8cff]">청주 출장마사지</span>
+            <span className="text-[#00ff88] text-xs sm:text-sm">대전</span>
+            <span className="text-gray-500 font-normal text-xs">·</span>
+            <span className="text-[#ba8cff] text-xs sm:text-sm">청주</span>
           </Link>
           <div className="flex gap-1.5 sm:gap-2">
             <a
@@ -108,13 +109,13 @@ export default function HomePage() {
       {/* 히어로 섹션 */}
       <section className="py-12 px-4 max-w-[900px] mx-auto text-center">
         <span className="inline-block px-3.5 py-1 rounded-full bg-[#ba8cff]/15 text-[#ba8cff] border border-[#ba8cff]/30 font-black text-xs mb-3">
-          DAEJEON & CHEONGJU 24H CARE
+          DAEJEON & CHEONGJU 24H CARE • 대청테라피
         </span>
         <h1 className="text-3xl sm:text-5xl font-black leading-tight tracking-tight mb-4 text-white">
-          대전 청주 출장마사지
+          대전·청주 출장마사지
         </h1>
         <p className="text-[#e1d9f5] text-base sm:text-lg mb-8 max-w-[700px] mx-auto leading-relaxed">
-          대전 및 청주 전 지역 24시간 30분 이내 신속히 방문해 드립니다. <br />
+          대청테라피는 대전 및 청주 전 지역 24시간 30분 이내 신속히 방문해 드립니다. <br />
           선입금 없는 100% 후불제로 안심하고 이용해 보세요.
         </p>
 
@@ -431,10 +432,10 @@ export default function HomePage() {
       {/* 푸터 */}
       <footer className="mt-20 py-8 px-4 border-t border-white/10 text-center text-xs text-gray-400">
         <p className="font-bold text-gray-300 mb-1">
-          대전지역담당 & 청주지역담당 24시간 상담
+          대청테라피 | 대전지역담당 & 청주지역담당 24시간 상담
         </p>
         <p>대전 및 청주 24시간 지역 맞춤 출장 케어 서비스 | 선입금 없는 100% 후불제 안내</p>
-        <p className="mt-4 text-gray-500">© 2026 대전 & 청주 출장마사지. All rights reserved.</p>
+        <p className="mt-4 text-gray-500">© 2026 대청테라피. All rights reserved.</p>
       </footer>
 
       {/* 모바일 하단 고정 바 */}

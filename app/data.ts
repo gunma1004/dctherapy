@@ -17,7 +17,8 @@ export interface CityData {
   districts: DistrictData[];
 }
 
-export const DOMAIN = "https://djcj-relax.netlify.app"; // 실제 도메인 주소로 변경
+// 확정된 Netlify 도메인 주소로 변경
+export const DOMAIN = "https://dctherapy.netlify.app";
 
 export const CITIES_DATA: Record<string, CityData> = {
   daejeon: {

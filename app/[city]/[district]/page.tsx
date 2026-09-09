@@ -13,9 +13,10 @@ export async function generateMetadata({
 
   if (!cityInfo || !districtInfo) return {};
 
-  const title = `${cityInfo.name} ${districtInfo.name} 출장마사지 | 24시 방문 힐링케어`;
-  // 👇 80자 이내로 문구 가듬기 (약 62자)
-  const description = `${cityInfo.name} ${districtInfo.name} 24시 출장마사지 전문. ${districtInfo.name} 전 지역 30분 내 신속 방문, 건식·아로마·스웨디시 100% 후불제.`;
+  // layout.tsx의 template("%s | 대청테라피")와 결합되어
+  // 최종: "대전 서구 출장마사지 24시 방문케어 | 대청테라피" 로 깔끔하게 출력됩니다.
+  const title = `${cityInfo.name} ${districtInfo.name} 출장마사지 24시 방문케어`;
+  const description = `${cityInfo.name} ${districtInfo.name} 24시 출장마사지 전문 대청테라피. ${districtInfo.name} 전 지역 30분 내 신속 방문, 건식·아로마·스웨디시 100% 후불제.`;
   const url = `${DOMAIN}/${city}/${district}`;
 
   return {
@@ -25,10 +26,10 @@ export async function generateMetadata({
       canonical: url,
     },
     openGraph: {
-      title: title,
+      title: `${cityInfo.name} ${districtInfo.name} 출장마사지 | 대청테라피`,
       description: description,
       url: url,
-      siteName: `${cityInfo.name} 출장마사지`,
+      siteName: "대청테라피",
       locale: "ko_KR",
       type: "website",
     },
@@ -70,12 +71,12 @@ export default async function DistrictPage({
       {/* 헤더 */}
       <header className="sticky top-0 z-40 bg-[#080611]/90 backdrop-blur-md border-b border-white/10">
         <div className="max-w-[1160px] mx-auto h-[66px] px-4 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-sm sm:text-base text-gray-300 hover:text-white">
-            ← 전체 메인으로
+          <Link href="/" className="font-extrabold text-sm sm:text-base text-gray-300 hover:text-white flex items-center gap-1">
+            ← <span className="text-white">대청테라피 홈</span>
           </Link>
           <a
             href={`tel:${cityInfo.phone}`}
-            className="px-4 py-2 rounded-full font-black text-xs sm:text-sm text-black"
+            className="px-4 py-2 rounded-full font-black text-xs sm:text-sm text-black hover:scale-105 transition-transform"
             style={{ backgroundColor: mainColor }}
           >
             📞 {cityInfo.name}지역담당 문의
@@ -92,14 +93,14 @@ export default async function DistrictPage({
             backgroundColor: `${mainColor}15`,
           }}
         >
-          {cityInfo.name} {districtInfo.name} 24시 방문 서비스
+          대청테라피 • {cityInfo.name} {districtInfo.name} 24시 방문 서비스
         </span>
         <h1 className="text-3xl sm:text-5xl font-black mb-4">
           {cityInfo.name} {districtInfo.name} 출장마사지
         </h1>
         <p className="text-[#e1d9f5] text-base sm:text-lg mb-8 max-w-[650px] mx-auto leading-relaxed">
-          {cityInfo.name} {districtInfo.name} 내 전 동 지역 20~30분 이내 신속 방문! <br />
-          선입금 없는 100% 후불제로 안전하게 관리받으세요.
+          대청테라피는 {cityInfo.name} {districtInfo.name} 전 지역 20~30분 이내 신속히 방문합니다. <br />
+          선입금 없는 100% 후불제로 안심하고 편안하게 관리받으세요.
         </p>
 
         {/* 동 이동 카드 그리드 */}
@@ -175,14 +176,14 @@ export default async function DistrictPage({
         <div className="grid grid-cols-2 gap-3 max-w-[480px] mx-auto">
           <a
             href={`tel:${cityInfo.phone}`}
-            className="py-4 rounded-2xl font-black text-black text-base shadow-lg"
+            className="py-4 rounded-2xl font-black text-black text-base shadow-lg hover:scale-105 transition-transform"
             style={{ backgroundColor: mainColor }}
           >
             📞 {districtInfo.name} 전화하기
           </a>
           <a
             href={`sms:${cityInfo.phone}`}
-            className="py-4 rounded-2xl bg-white text-black font-black text-base shadow-lg"
+            className="py-4 rounded-2xl bg-white text-black font-black text-base shadow-lg hover:scale-105 transition-transform"
           >
             💬 {districtInfo.name} 문자하기
           </a>
@@ -193,7 +194,7 @@ export default async function DistrictPage({
       <div className="fixed bottom-3 left-1/2 -translate-x-1/2 w-[calc(100%-20px)] max-w-[500px] bg-[#080611]/95 backdrop-blur-xl border border-white/20 p-2 rounded-2xl shadow-2xl z-50">
         <a
           href={`tel:${cityInfo.phone}`}
-          className="py-3 rounded-xl font-black text-black text-sm flex items-center justify-center gap-1"
+          className="py-3 rounded-xl font-black text-black text-sm flex items-center justify-center gap-1 active:scale-95 transition-transform"
           style={{ backgroundColor: mainColor }}
         >
           📞 {cityInfo.name}지역담당 바로연결 ({cityInfo.phone.slice(-4)})

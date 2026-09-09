@@ -14,8 +14,10 @@ export async function generateMetadata({
 
   if (!cityInfo || !districtInfo || !dongInfo) return {};
 
-  const title = `${cityInfo.name} ${districtInfo.name} ${dongInfo.name} 출장마사지 | 24시 방문`;
-  const description = `${cityInfo.name} ${dongInfo.name} 출장마사지 24시 신속 방문. ${dongInfo.name} 어디든 20~30분 이내 도착, 건식·아로마·VIP스웨디시 선입금 없는 100% 후불제.`;
+  // layout.tsx의 template("%s | 대청테라피")와 결합되어
+  // 최종: "대전 서구 둔산동 출장마사지 24시 방문 | 대청테라피" 로 렌더링됩니다.
+  const title = `${cityInfo.name} ${districtInfo.name} ${dongInfo.name} 출장마사지 24시 방문`;
+  const description = `${cityInfo.name} ${dongInfo.name} 24시 출장마사지 전문 대청테라피. ${dongInfo.name} 어디든 20~30분 이내 도착, 건식·아로마·VIP스웨디시 선입금 없는 100% 후불제.`;
   const url = `${DOMAIN}/${city}/${district}/${dong}`;
 
   return {
@@ -25,10 +27,10 @@ export async function generateMetadata({
       canonical: url,
     },
     openGraph: {
-      title: title,
+      title: `${cityInfo.name} ${districtInfo.name} ${dongInfo.name} 출장마사지 | 대청테라피`,
       description: description,
       url: url,
-      siteName: `${cityInfo.name} 출장마사지`,
+      siteName: "대청테라피",
       locale: "ko_KR",
       type: "website",
     },
@@ -60,13 +62,13 @@ export default async function DongPage({
         <div className="max-w-[1160px] mx-auto h-[66px] px-4 flex items-center justify-between">
           <Link
             href={`/${city}/${district}`}
-            className="font-extrabold text-sm sm:text-base text-gray-300 hover:text-white"
+            className="font-extrabold text-sm sm:text-base text-gray-300 hover:text-white flex items-center gap-1"
           >
-            ← {districtInfo.name} 전체보기
+            ← <span className="text-white">{districtInfo.name} 전체보기</span>
           </Link>
           <a
             href={`tel:${cityInfo.phone}`}
-            className="px-4 py-2 rounded-full font-black text-xs sm:text-sm text-black"
+            className="px-4 py-2 rounded-full font-black text-xs sm:text-sm text-black hover:scale-105 transition-transform"
             style={{ backgroundColor: mainColor }}
           >
             📞 {cityInfo.name}지역담당 문의
@@ -83,13 +85,13 @@ export default async function DongPage({
             backgroundColor: `${mainColor}15`,
           }}
         >
-          {cityInfo.name} {dongInfo.name} 맞춤 방문 케어
+          대청테라피 • {cityInfo.name} {dongInfo.name} 맞춤 방문 케어
         </span>
         <h1 className="text-3xl sm:text-5xl font-black mb-4">
           {cityInfo.name} {dongInfo.name} 출장마사지
         </h1>
         <p className="text-[#e1d9f5] text-base sm:text-lg mb-8 max-w-[650px] mx-auto leading-relaxed">
-          {dongInfo.name} 전 지역 어디든 계신 곳으로 20~30분 이내 출발합니다. <br />
+          대청테라피는 {dongInfo.name} 전 지역 어디든 계신 곳으로 20~30분 이내 출발합니다. <br />
           선입금 없는 100% 후불제로 안심하고 편안하게 관리받으세요.
         </p>
 
@@ -158,14 +160,14 @@ export default async function DongPage({
         <div className="grid grid-cols-2 gap-3 max-w-[480px] mx-auto">
           <a
             href={`tel:${cityInfo.phone}`}
-            className="py-4 rounded-2xl font-black text-black text-base shadow-lg"
+            className="py-4 rounded-2xl font-black text-black text-base shadow-lg hover:scale-105 transition-transform"
             style={{ backgroundColor: mainColor }}
           >
             📞 {dongInfo.name} 전화예약
           </a>
           <a
             href={`sms:${cityInfo.phone}`}
-            className="py-4 rounded-2xl bg-white text-black font-black text-base shadow-lg"
+            className="py-4 rounded-2xl bg-white text-black font-black text-base shadow-lg hover:scale-105 transition-transform"
           >
             💬 {dongInfo.name} 문자문의
           </a>
@@ -176,7 +178,7 @@ export default async function DongPage({
       <div className="fixed bottom-3 left-1/2 -translate-x-1/2 w-[calc(100%-20px)] max-w-[500px] bg-[#080611]/95 backdrop-blur-xl border border-white/20 p-2 rounded-2xl shadow-2xl z-50">
         <a
           href={`tel:${cityInfo.phone}`}
-          className="py-3 rounded-xl font-black text-black text-sm flex items-center justify-center gap-1"
+          className="py-3 rounded-xl font-black text-black text-sm flex items-center justify-center gap-1 active:scale-95 transition-transform"
           style={{ backgroundColor: mainColor }}
         >
           📞 {dongInfo.name} 전화 연결하기 ({cityInfo.phone.slice(-4)})
