@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: "https://dctherapy.netlify.app",
   },
   openGraph: {
-    title: "대청테라피 | 대전·청주 출장마사지 24시 방문 홈케어",
+    title: "대청테라피 | 대전·청주 출장 마사지 24시 방문 홈케어",
     description:
       "대전 및 청주 전 지역 30분 내 빠른 방문, 전 코스 100% 후불제 안심 테라피.",
     url: "https://dctherapy.netlify.app",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   verification: {
     other: {
-      "naver-site-verification": "20aed14af388a01bf5aad0deed962a7162ae1be3",
+      "naver-site-verification": "6386481118ff6657ea1d1c323c392ace71e1ae59",
     },
   },
   robots: {
