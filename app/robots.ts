@@ -1,4 +1,12 @@
-User-Agent: *
-Allow: /
+import { MetadataRoute } from "next";
+import { DOMAIN } from "@/app/data";
 
-Sitemap: https://dctherapy.netlify.app/sitemap.xml
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+    },
+    sitemap: `${DOMAIN}/sitemap.xml`,
+  };
+}
